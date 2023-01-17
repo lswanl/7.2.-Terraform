@@ -48,10 +48,10 @@ secret_key     ****************zz3l shared-credentials-file
 не указывать авторизационный токен в коде, а терраформ провайдер брал его из переменных окружений.
 
 ```bash
-% yc config list
-token: XXXXXXXXXXXXXXXXXXXXXXXXXXXX
-cloud-id: b1gf414nutkriug2ir4g
-folder-id: b1g6362m5m9e57sur9d1
+root@dont-touch:/home/dlebedev# yc config list
+token: y0_AgAAAAACvsYNAATuwQAAAADQh5z3BfWTlf-ZSCKSjbR_vmRpu_eank8
+cloud-id: b1gt7kjpfnc3kmbc55oq
+folder-id: b1gds61bcu13untijn8j
 compute-default-zone: ru-central1-a
 ```
 
@@ -82,48 +82,48 @@ compute-default-zone: ru-central1-a
        * Идентификатор подсети в которой создан инстанс.  
 7. Если вы выполнили первый пункт, то добейтесь того, что бы команда `terraform plan` выполнялась без ошибок. 
 ```bash
-Plan: 4 to add, 0 to change, 0 to destroy.
+root@dont-touch:~/git/devops-netology/terraform# terraform init
 
-Changes to Outputs:
-  + aws_account_id     = "341635784912"
-  + aws_net_private_ip = (known after apply)
-  + aws_net_subnet_id  = (known after apply)
-  + aws_region         = "ec2.eu-central-1.amazonaws.com"
-  + aws_user_id        = "341635784912"
-  + yandex_ip_private  = (known after apply)
-  + yandex_vpc_subnet  = (known after apply)
-  + yandex_zone        = (known after apply)
+Initializing the backend...
 
-Do you want to perform these actions?
-  Terraform will perform the actions described above.
-  Only 'yes' will be accepted to approve.
+Initializing provider plugins...
+- Finding latest version of yandex-cloud/yandex...
+- Installing yandex-cloud/yandex v0.84.0...
+- Installed yandex-cloud/yandex v0.84.0 (unauthenticated)
 
-  Enter a value: yes
+The following providers do not have any version constraints in configuration,
+so the latest version was installed.
 
-yandex_vpc_network.net: Creating...
-aws_instance.ubuntu: Creating...
-yandex_vpc_network.net: Creation complete after 2s [id=enp47smttn2udbms24f0]
-yandex_vpc_subnet.subnet: Creating...
-yandex_vpc_subnet.subnet: Creation complete after 1s [id=e9b3vbi9ncq3hbttises]
-yandex_compute_instance.vm: Creating...
-aws_instance.ubuntu: Still creating... [10s elapsed]
-yandex_compute_instance.vm: Still creating... [10s elapsed]
-aws_instance.ubuntu: Creation complete after 15s [id=i-02e18ceb6723c46c1]
-yandex_compute_instance.vm: Still creating... [20s elapsed]
-yandex_compute_instance.vm: Creation complete after 26s [id=fhmasuhme4q3arja4fp9]
+To prevent automatic upgrades to new major versions that may contain breaking
+changes, we recommend adding version constraints in a required_providers block
+in your configuration, with the constraint strings suggested below.
 
-Apply complete! Resources: 4 added, 0 changed, 0 destroyed.
+* yandex-cloud/yandex: version = "~> 0.84.0"
 
-Outputs:
+Terraform has been successfully initialized!
 
-aws_account_id = "341635784912"
-aws_net_private_ip = "172.31.4.27"
-aws_net_subnet_id = "subnet-0adf4bba656b2a0b2"
-aws_region = "ec2.eu-central-1.amazonaws.com"
-aws_user_id = "341635784912"
-yandex_ip_private = "10.2.0.7"
-yandex_vpc_subnet = "e9b3vbi9ncq3hbttises"
-yandex_zone = "ru-central1-a"
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+root@dont-touch:~/git/devops-netology/terraform# terraform plan
+Refreshing Terraform state in-memory prior to plan...
+The refreshed state will be used to calculate this plan, but will not be
+persisted to local or remote state storage.
+
+
+------------------------------------------------------------------------
+
+No changes. Infrastructure is up-to-date.
+
+This means that Terraform did not detect any differences between your
+configuration and real physical resources that exist. As a result, no
+actions need to be performed.
+root@dont-touch:~/git/devops-netology/terraform# 
+
 ```
 
 
@@ -131,4 +131,4 @@ yandex_zone = "ru-central1-a"
 1. Ответ на вопрос: при помощи какого инструмента (из разобранных на прошлом занятии) можно создать свой образ ami?
 [Packer](https://www.packer.io/)
 2. Ссылку на репозиторий с исходной конфигурацией терраформа.
-[terraform](https://github.com/Bora2k3/devops-netology/tree/main/terraform/07-terraform-02-syntax)
+[terraform](https://releases.hashicorp.com/terraform/0.13.6/
