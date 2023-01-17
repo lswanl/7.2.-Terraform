@@ -131,5 +131,6 @@ root@dont-touch:~/git/devops-netology/terraform#
 1. Ответ на вопрос: при помощи какого инструмента (из разобранных на прошлом занятии) можно создать свой образ ami?
 [Packer](https://www.packer.io/)
 2. Ссылку на репозиторий с исходной конфигурацией терраформа.
-```https://releases.hashicorp.com/terraform/0.13.6/
+```
+https://releases.hashicorp.com/terraform/0.13.6/
 ```
