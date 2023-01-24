@@ -125,6 +125,7 @@ actions need to be performed.
 root@dont-touch:~/git/devops-netology/terraform# 
 
 ```
+![]Снимок экрана 2023-01-24 в 11.22.32<img width="1190" alt="изображение" src="https://user-images.githubusercontent.com/88130366/214243832-21734ccf-5ec1-4cde-b870-77c0152ba84f.png">
 
 
 В качестве результата задания предоставьте:
